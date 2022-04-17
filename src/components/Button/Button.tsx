@@ -1,19 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import './Button.css'
 
 interface ButtonProps {
   label: string;
 }
 
-const StyledButton = styled.button`
-  border: 1px dotted yellow;
-  background: tomato;
-  color: black;
-  font-weight: 500;
-`;
-
 const Button: React.FC<ButtonProps> = ({ label }) => {
-  return <StyledButton>{label}</StyledButton>;
+  return <button className='JUI_button'>{label}</button>;
 };
 
 export default Button;
