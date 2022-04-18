@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Button from './Button';
+import MyButton from './MyButton';
 
 test('button renders on page', () => {
-  render(<Button label="howdy" />);
+  render(<MyButton label="howdy" />);
 });
