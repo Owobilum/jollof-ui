@@ -1,8 +1,9 @@
 import React from 'react';
-import './MyButton.css';
+import './MyButton.scss';
 
-interface MyButtonProps {
+export interface MyButtonProps {
   label: string;
+  children?: React.ReactNode;
 }
 
 const MyButton: React.FC<MyButtonProps> = ({ label }) => {
