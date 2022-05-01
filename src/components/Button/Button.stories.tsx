@@ -6,26 +6,20 @@ import Button from './Button';
 export default {
   title: 'JollofUI/Button',
   component: Button,
-  //   argTypes: {
-  //     label: { control: 'color' },
-  //   },
 } as ComponentMeta<typeof Button>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => (
-  <Button {...args}>{args.children}</Button>
-);
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const Red = Template.bind({});
+export const Contained = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Red.args = {
-  backgroundColor: 'red',
+Contained.args = {
+  children: 'click me',
+  variant: 'contained',
 };
 
-export const Blue = Template.bind({});
-Blue.args = {
-//   backgroundColor: 'blue',
-  color: '#green',
-  children: 'HEya',
-  variant: 'outlined'
+export const Outlined = Template.bind({});
+Outlined.args = {
+  children: 'Click Me',
+  variant: 'outlined',
 };

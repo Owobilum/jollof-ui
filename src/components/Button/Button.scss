@@ -1,13 +1,79 @@
-.JUI-button{
-    border-radius: 4px;
-    cursor: pointer;
-}
+@import '../../common/_colors';
 
-.JUI-button_outlined{
-    background-color: transparent;
-    border: solid 1px red;
-    // outline: solid 1px;
-}
-.contained{
-    color:red
+$colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'danger': $danger,
+  'warning': $warning,
+  'black': $black,
+);
+
+$variants: (
+  'outlined': 'outlined',
+  'contained': 'contained',
+);
+
+$sizes: (
+  'small': 'sm',
+  'large': 'lg',
+  'fullwidth': 'fw',
+);
+
+.JUI_button {
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 8px 2px;
+  border-width: 1px;
+  text-transform: capitalize;
+  overflow-wrap: break-word;
+
+  //create classes for all colors
+  @each $key, $value in $colors {
+    &_#{$key} {
+      color: $value;
+      background-color: $value;
+      border: 1px solid $value;
+      &:hover {
+        filter: brightness(95%);
+      }
+    }
+  }
+
+  @each $key, $value in $variants {
+    &_#{$key} {
+      @if ($key == outlined) {
+        background-color: transparent;
+      } @else {
+        color: #fff;
+      }
+    }
+  }
+
+  @each $key, $value in $sizes {
+    &_#{$key} {
+      @if ($key == 'small') {
+        width: 80px;
+      }
+      @if ($key == 'large') {
+        width: 150px;
+      }
+      @if ($key == fullwidth) {
+        width: 100%;
+      }
+    }
+  }
+
+  &_animate {
+    transform: translateY(0);
+    transition: transform 0.25s;
+    &:hover {
+      transform: translateY(4px);
+    }
+  }
+
+  &:disabled {
+    background-color: $gray;
+    border: none;
+  }
 }
