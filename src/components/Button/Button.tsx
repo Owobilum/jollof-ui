@@ -15,13 +15,14 @@ export interface ButtonProps
   color?: 'primary' | 'secondary' | 'warning' | 'danger' | 'black';
 }
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  variant = 'contained',
-  size = 'small',
-  animate,
-  color = 'primary',
-}) => {
+const Button: React.FC<ButtonProps> = (props) => {
+  const {
+    children,
+    variant = 'contained',
+    size = 'small',
+    animate,
+    color = 'primary',
+  } = props;
   const btnStyle = classNames(
     'JUI_button',
     { [`JUI_button_${variant}`]: true },
@@ -30,7 +31,11 @@ const Button: React.FC<ButtonProps> = ({
     { [`JUI_button_${color}`]: true }
   );
 
-  return <button className={btnStyle}>{children}</button>;
+  return (
+    <button className={btnStyle} {...props}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;

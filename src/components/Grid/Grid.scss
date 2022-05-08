@@ -1,0 +1,79 @@
+@use 'sass:math';
+
+@import '../../common/screens';
+
+$justify-values: center, flex-start, flex-end, space-between, space-evenly,
+  space-around;
+
+$align-values: center, flex-start, flex-end, space-between, space-evenly,
+  space-around, stretch, baseline;
+
+$direction-values: row, column, row-reverse, column-reverse;
+
+$gap: 2px;
+
+.JUI_grid {
+  &_container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @each $value in $justify-values {
+    &_justify_#{$value} {
+      justify-content: $value;
+    }
+  }
+  @each $value in $align-values {
+    &_align_#{$value} {
+      align-items: $value;
+    }
+  }
+
+  @each $value in $direction-values {
+    &_direction_#{$value} {
+      flex-direction: $value;
+    }
+  }
+
+  &_item {
+    display: block;
+  }
+  @for $i from 1 through 13 {
+    &_xs_#{$i} {
+      flex-basis: calc(math.div($i, 12) * 100%);
+    }
+  }
+  @for $i from 1 through 13 {
+    @include sm-screen {
+      &_sm_#{$i} {
+        flex-basis: calc(math.div($i, 12) * 100%);
+      }
+    }
+  }
+  @for $i from 1 through 13 {
+    @include md-screen {
+      &_md_#{$i} {
+        flex-basis: calc(math.div($i, 12) * 100%);
+      }
+    }
+  }
+  @for $i from 1 through 13 {
+    @include lg-screen {
+      &_lg_#{$i} {
+        color: yellowgreen;
+        flex-basis: calc(math.div($i, 12) * 100%);
+      }
+    }
+  }
+
+  @for $i from 1 through 13 {
+    &_gap_#{$i} {
+      margin-bottom: calc(-1 * $i * $gap);
+      margin-left: calc(-1 * $i * $gap);
+    }
+    &_gap_#{$i} > &_item {
+      margin-bottom: calc($i * $gap);
+      margin-left: calc($i * $gap);
+    }
+  }
+}
