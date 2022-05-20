@@ -60,7 +60,6 @@ $gap: 2px;
   @for $i from 1 through 13 {
     @include lg-screen {
       &_lg_#{$i} {
-        color: yellowgreen;
         flex-basis: calc(math.div($i, 12) * 100%);
       }
     }
