@@ -1,44 +1,53 @@
-import React from "react";
-import { Story, Meta } from "@storybook/react/types-6-0";
+import React from 'react';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Grid from "./Grid";
+import Grid from './Grid';
 
 export default {
-  title: "JollofUI/Grid",
+  title: 'JollofUI/Grid',
   component: Grid,
 } as Meta;
 
 export const Basic: Story = (args) => (
-    <Grid
-      container
-      alignItems="center"
-      {...args}
-    >
-      <Grid item xs={12} sm={6} md={4} lg={3} style={{backgroundColor:'blue'}}>
+  <Grid container alignItems="center" {...args}>
+    <Grid item xs={12} sm={6} md={4} lg={3} style={{ backgroundColor: 'blue' }}>
       Hello
-      </Grid>
-
-      <Grid item xs={12} sm={6} md={4} lg={3} style={{backgroundColor:'yellow'}}>
-      Hello
-      </Grid>
-
-      <Grid item xs={12} sm={6} md={4} lg={3} style={{backgroundColor:'green'}}>
-      Hello
-      </Grid>
-
-      <Grid item xs={12} sm={6} md={4} lg={3} style={{backgroundColor:'purple'}}>
-      Hello
-      </Grid>
     </Grid>
+
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={4}
+      lg={3}
+      style={{ backgroundColor: 'yellow' }}
+    >
+      Hello
+    </Grid>
+
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={4}
+      lg={3}
+      style={{ backgroundColor: 'green' }}
+    >
+      Hello
+    </Grid>
+
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={4}
+      lg={3}
+      style={{ backgroundColor: 'purple' }}
+    >
+      Hello
+    </Grid>
+  </Grid>
 );
-
-
-
-
-
-
-
-
 
 // import React from 'react';
 // import { ComponentStory, ComponentMeta } from '@storybook/react';

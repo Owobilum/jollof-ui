@@ -1,3 +1,5 @@
 export { default as Button } from './Button';
 export { default as Grid } from './Grid';
 export { default as Input } from './Input';
+export { default as Modal } from './Modal';
+export { default as Overlay } from './Overlay';

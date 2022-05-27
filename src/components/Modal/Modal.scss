@@ -1,0 +1,31 @@
+@import '../../common/z-indexes';
+@import '../../common/screens';
+
+// bg-white p-4 m-1 md:max-w-md lg:max-w-xl
+
+.JUI_modal {
+  position: fixed;
+  background: transparent;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: $z5;
+  display: grid;
+  place-items: center;
+
+  &_content {
+    background-color: #fff;
+    min-height: 300px;
+    min-width: 300px;
+    max-height: 350px;
+    max-width: 350px;
+    padding: 16px;
+    @include md-screen {
+      max-width: 400px;
+    }
+    @include lg-screen {
+      max-width: 600px;
+    }
+  }
+}
