@@ -1,21 +1,26 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode} from 'react';
 
-import Overlay from '../Overlay';
 import './Modal.scss';
 
 export interface ModalProps {
   children?: ReactNode;
-  open?: boolean;
-  handleClose?: () => void;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Modal: FC<ModalProps> = ({ children, open }) => {
+const Modal: FC<ModalProps> = ({ children, open,setOpen }) => {
+
+  const handleClick=(e:React.MouseEvent<HTMLDivElement, MouseEvent>)=>{
+    if(e.currentTarget !== e.target){
+      return
+    }
+    setOpen && setOpen(false)
+  }
   return (
     <div style={!open ? { display: 'none' } : {}}>
-      <div className="JUI_modal">
+      <div className="JUI_modal" onClick={handleClick}>
         <div className="JUI_modal_content">{children}</div>
       </div>
-      <Overlay />
     </div>
   );
 };

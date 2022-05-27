@@ -11,22 +11,13 @@ export default {
 export const Basic: Story = (args) => {
   const [open, setOpen] = useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleOpen = () => setOpen(true);
 
   return (
     <>
-      <button onClick={handleOpen}>Open</button>
-      <Modal open={open} handleClose={handleClose} {...args}>
+      <button onClick={handleOpen}>Open Modal</button>
+      <Modal open={open} setOpen={setOpen} {...args}>
         <div>
-          <p style={{ textAlign: 'right' }}>
-            <button onClick={handleClose}>X</button>
-          </p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
             enim?
