@@ -1,4 +1,4 @@
-import React, { FC, ReactNode} from 'react';
+import React, { FC, ReactNode } from 'react';
 
 import './Modal.scss';
 
@@ -8,14 +8,13 @@ export interface ModalProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Modal: FC<ModalProps> = ({ children, open,setOpen }) => {
-
-  const handleClick=(e:React.MouseEvent<HTMLDivElement, MouseEvent>)=>{
-    if(e.currentTarget !== e.target){
-      return
+const Modal: FC<ModalProps> = ({ children, open, setOpen }) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (e.currentTarget !== e.target) {
+      return;
     }
-    setOpen && setOpen(false)
-  }
+    setOpen && setOpen(false);
+  };
   return (
     <div style={!open ? { display: 'none' } : {}}>
       <div className="JUI_modal" onClick={handleClick}>

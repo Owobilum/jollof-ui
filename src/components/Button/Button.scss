@@ -44,7 +44,7 @@ $sizes: (
     &_#{$key} {
       @if ($key == outlined) {
         background-color: transparent;
-        &:hover{
+        &:hover {
           background-color: lightgray;
         }
       } @else {
